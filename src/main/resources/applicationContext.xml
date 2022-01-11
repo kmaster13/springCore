@@ -14,5 +14,9 @@
     <bean id="musicPlayer"
           class="ru.kmaster.springPractice.MusicPlayer">
         <property name="music" ref="musicBean"/>
+
+        <property name="name" value="Some value"/>
+
+        <property name="volume" value="50"/>
     </bean>
 </beans>
