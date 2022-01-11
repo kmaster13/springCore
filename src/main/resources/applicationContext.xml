@@ -13,6 +13,6 @@
 
     <bean id="musicPlayer"
           class="ru.kmaster.springPractice.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
     </bean>
 </beans>
