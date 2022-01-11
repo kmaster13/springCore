@@ -9,31 +9,34 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean1"
-          class="ru.kmaster.springPractice.ClassicalMusic">
+    <bean id="musicBean"
+          class="ru.kmaster.springPractice.ClassicalMusic"
+          init-method="doInitMethod"
+          destroy-method="doDestroyMethod"
+          factory-method="getClassicalMusic">
     </bean>
 
-    <bean id="musicBean2"
-          class="ru.kmaster.springPractice.RapMusic">
-    </bean>
+    <!--    <bean id="musicBean2"
+              class="ru.kmaster.springPractice.RapMusic">
+        </bean>
 
-    <bean id="musicBean3"
-          class="ru.kmaster.springPractice.RockMusic">
-    </bean>
+        <bean id="musicBean3"
+              class="ru.kmaster.springPractice.RockMusic">
+        </bean>
 
-    <bean id="musicPlayer"
-          class="ru.kmaster.springPractice.MusicPlayer"
-          scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
-            </list>
-        </property>
+        <bean id="musicPlayer"
+              class="ru.kmaster.springPractice.MusicPlayer"
+              scope="prototype">
+            <property name="musicList">
+                <list>
+                    <ref bean="musicBean1"/>
+                    <ref bean="musicBean2"/>
+                    <ref bean="musicBean3"/>
+                </list>
+            </property>
 
-        <property name="name" value="${musicPlayer.name}"/>
+            <property name="name" value="${musicPlayer.name}"/>
 
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+            <property name="volume" value="${musicPlayer.volume}"/>
+        </bean>-->
 </beans>
