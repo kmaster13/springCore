@@ -1,11 +1,8 @@
 package ru.kmaster.springPractice;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
-import java.util.Random;
 
 @Component
 public class MusicPlayer {
@@ -33,16 +30,4 @@ public class MusicPlayer {
         this.rapMusic = rapMusic;
     }
 
-
-    public void playMusic(GenreOfMusic genre) {
-        Random random = new Random();
-
-        int randomNumber = random.nextInt(3);
-
-        if (genre == GenreOfMusic.CLASSICAL) {
-            System.out.println(classicalMusic.getSongs().get(randomNumber));
-        } else {
-            System.out.println(rapMusic.getSongs().get(randomNumber));
-        }
-    }
 }
