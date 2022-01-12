@@ -1,11 +1,10 @@
 package ru.kmaster.springPractice;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-@Component
 public class MusicPlayer {
+
     @Value("${musicPlayer.name}")
     private String name;
 
@@ -20,14 +19,17 @@ public class MusicPlayer {
         return volume;
     }
 
+    private Music music1;
+    private Music music2;
 
-    private ClassicalMusic classicalMusic;
-    private RapMusic rapMusic;
+    public MusicPlayer(@Qualifier("rapMusic") Music music1,
+                       @Qualifier("classicalMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
+    }
 
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RapMusic rapMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rapMusic = rapMusic;
+    public void playMusic() {
+        System.out.println("Playing: " + music1.getSong() + ", " + music2.getSong());
     }
 
 }
