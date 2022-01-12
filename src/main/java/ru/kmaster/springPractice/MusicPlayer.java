@@ -1,14 +1,20 @@
 package ru.kmaster.springPractice;
 
-public class MusicPlayer {
-    private Music music;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-    // IoC
-    public MusicPlayer(Music music) {
-        this.music = music;
+@Component
+public class MusicPlayer {
+    private ClassicalMusic classicalMusic;
+    private RapMusic rapMusic;
+
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RapMusic rapMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rapMusic = rapMusic;
     }
 
-    public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic() {
+        return "Playing: " + rapMusic.getSong();
     }
 }
